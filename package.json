@@ -1,0 +1,26 @@
+{
+  "name": "stylisting",
+  "description": "a really cool site",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-fall-2021/js-library-mujionga.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-fall-2021/js-library-mujionga/issues"
+  },
+  "homepage": "https://github.com/csc309-fall-2021/js-library-mujionga#readme"
+}

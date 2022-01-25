@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Stylisting</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+        
+        <link rel="stylesheet" href="stylisting.css">
+        <script defer type="text/javascript" src='stylisting.js'></script>
+        <script defer type="text/javascript" src='examples.js'></script>
+        
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Stylisting</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#stylisting" class="nav-link">Stylisting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#supported-list-types" class="nav-link">Supported List Types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#unorderedlist-orderedlist-todolist" class="nav-link">UnorderedList, OrderedList, TodoList</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#unorderedlist" class="nav-link">UnorderedList</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#orderedlist" class="nav-link">OrderedList</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#todolist" class="nav-link">TodoList</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#togglelist" class="nav-link">ToggleList</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#tab" class="nav-link">Tab</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="stylisting">Stylisting</h1>
+<blockquote>
+<p>making lists more elegant, interactive, and easier to make
+</p>
+</blockquote>
+<h1 id="getting-started">Getting Started</h1>
+<p>In the head section of your HTML, add the below code snippet</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;stylisting.css&quot;&gt;
+&lt;script defer type=&quot;text/javascript&quot; src='stylisting.js'&gt;&lt;/script&gt;
+&lt;script defer type=&quot;text/javascript&quot; src='examples.js'&gt;&lt;/script&gt;
+</code></pre>
+<p>In the body section of your HTML, add the below code snippet to where you want your list to locate at</p>
+<p>You can also specify the width of your list</p>
+<pre><code class="language-html">&lt;div id='ul2' style='width: 300px'&gt;&lt;/div&gt;
+</code></pre>
+<p>In the <code>examples.js</code> file, include the following code snippet</p>
+<pre><code class="language-jsx">// define the items of your list
+const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+// UnorderedList2 class take three arguments(there are more optional arguments) 
+// items, DivID, whether or not the list should be editable by user
+const unorderedList2 = new UnorderedList2([...items], 'ul2', true)
+// the below method will generate the list in the div with the div id &quot;ul2&quot;
+unorderedList2.generateStylisting()
+</code></pre>
+<p>Your list will look like this:</p>
+<div id='ul2' style='width: 300px'></div>
+<h1 id="supported-list-types">Supported List Types</h1>
+<p>There are several list types that are defined as classes in the JavaScript Files. Each list type except Tab has three styles to choose from. For example, If you want to choose UnorderedList, use class <code>UnorderedList1</code>, <code>UnorderedList2</code> or <code>UnorderedList3</code> instead of <code>UnorderedList</code> by itself (because UnorderedList has no styles applied). Same goes for <code>OrderedList</code>, <code>TodoList</code>, and <code>ToggleList</code>. For tab, simply use class <code>Tab</code> since there is only one style for tab.</p>
+<ul>
+<li>UnorderedList<ul>
+<li><code>UnorderedList1</code></li>
+<li><code>UnorderedList2</code></li>
+<li><code>UnorderedList3</code></li>
+</ul>
+</li>
+<li>OrderedList<ul>
+<li><code>OrderedList1</code></li>
+<li><code>OrderedList2</code></li>
+<li><code>OrderedList3</code></li>
+</ul>
+</li>
+<li>TodoList<ul>
+<li><code>TodoList1</code></li>
+<li><code>TodoList2</code></li>
+<li><code>TodoList3</code></li>
+</ul>
+</li>
+<li>ToggleList<ul>
+<li><code>ToggleList1</code></li>
+<li><code>ToggleList2</code></li>
+<li><code>ToggleList3</code></li>
+</ul>
+</li>
+<li><code>Tab</code></li>
+</ul>
+<p>For all the UnorderedLists, OrderedLists, and TodoLists, their constructors take the same arguments: For example,</p>
+<pre><code class="language-jsx">const td3 = new ToDoList3(items, parentDivID, editable, 
+        fontFamily, fontColor, backgroundColorList)
+
+</code></pre>
+<ul>
+<li><code>items</code>: all the items in the list</li>
+<li><code>parentDivID</code>: the div id where you want your list to locate at</li>
+<li>
+<p><code>editable</code>: whether or not the list can be edited by the user (optional, default <code>false</code>)</p>
+<p>When <code>true</code>, users can</p>
+<ul>
+<li>+ Add items</li>
+<li>× Delete items</li>
+<li>Edit items</li>
+<li>⇣ Sort items</li>
+<li>≡ Change views</li>
+</ul>
+<p>and the items changed will be updated in the object</p>
+</li>
+<li>
+<p><code>fontFamily</code>: font family of the list (optional)</p>
+</li>
+<li><code>fontColor</code>: font color of the list (optional)</li>
+<li><code>backgroundColorList</code>: background colors of the list. If there is more than one color in the list, the background color will change for each item (optional)</li>
+</ul>
+<p>More details in the sections below</p>
+<h1 id="unorderedlist-orderedlist-todolist">UnorderedList, OrderedList, TodoList</h1>
+<h2 id="unorderedlist">UnorderedList</h2>
+<p><code>UnorderedList1</code>, <code>UnorderedList2</code>, <code>UnorderedList3</code> work the same way. The only difference is their style. Let’s use <code>UnorderedList3</code> for example: </p>
+<p>HTML: </p>
+<pre><code class="language-html">&lt;div id='ul3' style='width: 300px'&gt;&lt;/div&gt;
+</code></pre>
+<p>JavaScript:</p>
+<ul>
+<li>if you want user to interact with the list (feel free to interact with it)</li>
+</ul>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const parentDivID = 'ul3'
+const unorderedList3 = new UnorderedList3(items, parentDivID, true)
+unorderedList3.generateStylisting()
+</code></pre>
+<div id='ul3' style='width: 300px'></div>
+<ul>
+<li>if you don’t want user to interact with the list</li>
+</ul>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const parentDivID = 'ul3'
+const unorderedList3 = new UnorderedList3(items, parentDivID, false)
+unorderedList3.generateStylisting()
+</code></pre>
+<div id='ul3-uneditable' style="width:300px"></div>
+<ul>
+<li>If you want to customize the style, like specifing your own background Color, font family, etc</li>
+</ul>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const parentDivID = 'ul3'
+const fontFamily = &quot;Impact,Charcoal,sans-serif&quot;
+const fontColor = 'blue'
+const backgroundColorList = ['white', 'gray'] 
+const unorderedList3 = new UnorderedList3(items, parentDivID, false, 
+        fontFamily, fontColor, backgroundColorList)
+unorderedList3.generateStylisting()
+</code></pre>
+<div id='ul3-custom' style='width: 300px'></div>
+<p>This also works the same way for all OrderedList(<code>OrderedList1</code>, <code>OrderedList2</code>, <code>OrderedList3</code>) and TodoList(<code>TodoList1</code>, <code>TodoList2</code>, <code>TodoList3</code>). I am not going to show the examples below</p>
+<h2 id="orderedlist">OrderedList</h2>
+<p><code>OrderedList1</code>, <code>OrderedList2</code>, <code>OrderedList3</code> work the same way. The only difference is their style. Let’s use <code>OrderedList3</code> for example: </p>
+<p>HTML: </p>
+<pre><code class="language-html">&lt;div id='ol3' style='width: 300px'&gt;&lt;/div&gt;
+</code></pre>
+<p>JavaScript: </p>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const parentDivID = 'ol3'
+const orderedList3 = new OrderedList3(items, parentDivID, true)
+orderedList3.generateStylisting()
+</code></pre>
+<h2 id="todolist">TodoList</h2>
+<p><code>TodoList</code> allows user to click on the checkbox to indicate a task is finished or not</p>
+<p><code>TodoList1</code>, <code>TodoList2</code>, <code>TodoList3</code> work the same way. The only difference is their style. Let’s use <code>TodoList2</code> for example: </p>
+<p>HTML: </p>
+<pre><code class="language-html">&lt;div id='td2' style='width: 300px'&gt;&lt;/div&gt;
+</code></pre>
+<p>JavaScript: </p>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const parentDivID = 'td2'
+const td2 = new TodoList2(items, parentDivID, true)
+td2.generateStylisting()
+</code></pre>
+<div id="td2" style='width: 300px'></div>
+<h1 id="togglelist">ToggleList</h1>
+<p><code>ToggleList</code> allows user to toggle the list items </p>
+<p><code>TodoList1</code>, <code>TodoList2</code>, <code>TodoList3</code> work the same way. The only difference is their style. Let’s use <code>TodoList3</code> for example: </p>
+<p>HTML: </p>
+<pre><code class="language-html">&lt;div id='tg3' style='width: 300px'&gt;&lt;/div&gt;
+</code></pre>
+<p>JavaScript: </p>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const title = &quot;Title&quot;
+const parentDivID = 'tg3'
+const tg3 = new ToggleList3(items, title, parentDivID, true)
+tg3.generateStylisting()
+</code></pre>
+<div id='tg3' style='width: 300px'></div>
+<p>If you would like to customize the style: </p>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
+const title = 'Title'
+const parentDivID = 'ul3'
+const fontFamily = &quot;Impact,Charcoal,sans-serif&quot; // optional
+const fontColor = 'blue' // optional
+const backgroundColorList = ['white', 'gray'] // optional
+const toggleColor = 'green' // optional
+const tg3 = new ToggleList3(items, title, parentDivID, false, 
+        fontFamily, fontColor, backgroundColorList, toggleColor)
+tg3.generateStylisting()
+</code></pre>
+<div id='tg3-custom' style='width: 300px'></div>
+<h1 id="tab">Tab</h1>
+<p><code>Tab</code> works like your typical browser tab. Note that in items, you can actually use html tags instead of plain text </p>
+<p>HTML:</p>
+<pre><code class="language-html">&lt;div id='tab' style='width: 600px'&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', '&lt;h3&gt;Item 3&lt;/h3&gt;Hi', 'Item 4', 'Item 5']
+const titles = ['title1', 'title2', 'title3', 'title4', 'title5']
+const parentDivID = 'tab'
+const tab = new Tab(items, titles, parentDivID)
+tab.generateStylisting()
+</code></pre>
+<div id='tab1' style='width: 600px'></div>
+<p>if you want to customize the style:</p>
+<pre><code class="language-jsx">const items = ['Item 1', 'Item 2', '&lt;h3&gt;Item 3&lt;/h3&gt;Hi', 'Item 4', 'Item 5']
+const titles = ['title1', 'title2', 'title3', 'title4', 'title5']
+const parentDivID = 'tab'
+const fontFamily = &quot;Impact,Charcoal,sans-serif&quot;
+const fontColor = 'green'
+const tabItemBackgroundColor = 'gray'
+const tabTitleBackgroundColor = 'yellow'
+const titleColor = 'purple'
+const tab = new Tab(items, titles, parentDivID, fontFamily, fontColor, 
+tabItemBackgroundColor, tabTitleBackgroundColor, titleColor)
+</code></pre>
+<div id='tab2' style='width: 600px'></div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.2.3
+Build Date UTC : 2021-12-18 08:16:40.639047+00:00
+-->
